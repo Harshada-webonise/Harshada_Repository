@@ -1,35 +1,35 @@
-public class rajamantri extends Activity {
+public class RajaMantriChorSipahi extends Activity {
     
 	
-	@Override
-	public void onbackpressed() {
-		
+	public void onBackPressed() {
+        }
 
-		
-	}
-
-	@Override
-	protected void onpostresume() {
+	
+	protected void onPostResume() {
 		// TODO Auto-generated method stub
-		super.onpostresume();
+		super.onPostResume();
 	}
 
-	@Override
-	public boolean onkeydown(int keyCode, KeyEvent event) {
+	
+	public boolean onKeyDown(int keyCode, KeyEvent event) 
+        {
 		AlertDialog dialog = new AlertDialog.Builder(this).create();
 		dialog.setTitle("Exit game!");
 		dialog.setMessage("Are you sure you want to exit the game?");
-		dialog.setButton("Exit", new DialogInterface.OnClickListener() {
+		dialog.setButton("Exit", new DialogInterface.OnClickListener() 
+                {
 			
-			public void onClick(DialogInterface dialog, int which) {
+			public void onClick(DialogInterface dialog, int which) 
+                        {
 				
 				finish();
-				
 			}
 		});
-		dialog.setButton2("Cancel", new DialogInterface.OnClickListener() {
+		dialog.setButton2("Cancel", new DialogInterface.OnClickListener() 
+                {
 			
-			public void onClick(DialogInterface dialog, int which) {
+			public void onClick(DialogInterface dialog, int which)
+                        {
 				
 				dialog.dismiss();
 				
@@ -37,16 +37,20 @@ public class rajamantri extends Activity {
 		});
 		dialog.show();
 		return super.onKeyDown(keyCode, event);
-	}
 
-	@Override
-	public void onlowmemory() {
+	}                        
+
+
+	public void onLowMemory() 
+        {
 		AlertDialog dialog = new AlertDialog.Builder(this).create();
 		dialog.setTitle("Low memory!");
 		dialog.setMessage("Too many apps open, kindly close some other apps and try again!");
-		dialog.setButton("Exit", new DialogInterface.OnClickListener() {
+		dialog.setButton("Exit", new DialogInterface.OnClickListener() 
+                {
 			
-			public void onClick(DialogInterface dialog, int which) {
+			public void onClick(DialogInterface dialog, int which) 
+                       {
 				
 				finish();
 				
@@ -57,16 +61,20 @@ public class rajamantri extends Activity {
 
 		
 		super.onLowMemory();
-	}
+
+	}  //End of onlowmemory() 
 
 	@Override
-	protected void onPause() {
+	protected void onPause() 
+        {
 		// TODO Auto-generated method stub
 		super.onPause();
 	}
 
 	String[] solutionArray = { "RAJA", "MANTRI", "CHOR", "SIPAHI"};
 	String[] playersArray = {"Player1", "Player2", "Player3", "Player4"};
+
+        //static variable initialisation
 	static String player1_name = "" ;
 	static String player2_name = "";
 	static String player3_name = "";
@@ -85,6 +93,7 @@ public class rajamantri extends Activity {
 	static int p2score = 0;
 	static int p3score = 0;
 	static int p4score = 0;
+
 	int count = 0;
 	
 	Button btnRajaMantri;
@@ -122,8 +131,8 @@ public class rajamantri extends Activity {
 	String nextTurn = "";
 	
 	
-    public void onRestart(){
-    	
+    public void onRestart()
+    {
     	super.onRestart();
     /*	player1_name = "" ;
     	player2_name = "";
@@ -139,11 +148,12 @@ public class rajamantri extends Activity {
     	p2score = 0;
     	p3score = 0;
     	p4score = 0;*/
-    	
-    	
-    }
+
+    } //End of onRestart() 
+
     
-    public void onResume(){
+    public void onResume()
+   {
     	
     	super.onResume();
     	/*player1_name = "" ;
@@ -161,13 +171,11 @@ public class rajamantri extends Activity {
     	p3score = 0;
     	p4score = 0;*/
     	
-    	
-    }
+    }  //End of onResume() 
 
 
-
-
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
       
@@ -176,10 +184,11 @@ public class rajamantri extends Activity {
         k = 0;
         l = 0;
         btnHelp = (Button)findViewById(R.id.btnHelp);
-        btnHelp.setOnClickListener(new OnClickListener() {
-			
-			public void onClick(View v) {
-				setContentView(R.layout.help);
+        btnHelp.setOnClickListener(new OnClickListener() 
+        {
+	  public void onClick(View v) 
+          {
+			    setContentView(R.layout.help);
 				 // Create the adView
 			    AdView adView = new AdView(RajaMantri.this, AdSize.BANNER, "a14e156523d01de");
 			    // Lookup your LinearLayout assuming it’s been given
@@ -193,33 +202,35 @@ public class rajamantri extends Activity {
 				String text = "Welcome to nostalgia! This is the paper free version of Raja Mantri Chor Sipahi.\n\nThe game involves bluffing with facial expressions and good guessing. This is a very popular childhood game in India played among kids often during their long summer vacations.\n\nThe game has 4 paper chits with Chor (thief), Sipahi (police), Raja (king) and Mantri (minister). The chits are folded at the start of the game and one of the 4 players will press SHUFFLE each one of the four players is supposed to secretly (by taking the phone and not letting the others see it)pick one chit by clicking on it, the player then clicks on the chit again to fold it back. All the players will then secretly open their chits and read what they have got. \n\nThe player who gets the chit with Raja written on it will say MERA MANTRI KAUN? (Who is my minister?). The player who got the chit with Mantri will say MEIN! (Me), The player with Raja will then say CHOR SIPAHI KA PATA LAGAO (find out who is the theif and who is the soldier). The player with Mantri will then guess who is the Chor (Thief), if he is wrong then his points are deducted and if he is correct he gets more points and the points from the player who got Chor (Thief) are deducted.\n\nIf the guess is correct the player with Chor is wrapped on his wrist by the Mantri, and if the Mantri is wrong then the Chor gets to hit his wrist.";
 				txtHelp.setText(text);
 				Button btnBack = (Button)findViewById(R.id.btnMainMenuHelp);
-				btnBack.setOnClickListener(new OnClickListener() {
+				btnBack.setOnClickListener(new OnClickListener(){
 					
-					public void onClick(View v) {
+					public void onClick(View v) 
+                                        {
 						
 						Intent i = new Intent(RajaMantri.this, RajaMantri.class);
 						RajaMantri.this.startActivity(i);
 						finish();
 						
-					}
+					}   //End of onClick(View v) 
 				});
 			}
 		});
         btnRajaMantri = (Button) findViewById(R.id.btnRajaMantri);
         btnRajaMantri.setOnClickListener(new OnClickListener() {
         	
- 		public void onClick(View v) {
- 			// TODO Auto-generated method stub
+ 		public void onClick(View v) 
+                {
+ 		// TODO Auto-generated method stub
  		setContentView(R.layout.rmcsp);	
- 		 // Create the adView
-	    AdView adView = new AdView(RajaMantri.this, AdSize.BANNER, "a14e156523d01de");
-	    // Lookup your LinearLayout assuming it’s been given
-	    // the attribute android:id="@+id/mainLayout"
-	    LinearLayout layout = (LinearLayout)findViewById(R.id.mainLayoutPlayer);
-	    // Add the adView to it
-	    layout.addView(adView);
-	    // Initiate a generic request to load it with an ad
-	    adView.loadAd(new AdRequest());
+ 		// Create the adView
+	        AdView adView = new AdView(RajaMantri.this, AdSize.BANNER, "a14e156523d01de");
+	        //Lookup your LinearLayout assuming it’s been given
+	        //the attribute android:id="@+id/mainLayout"
+	        LinearLayout layout = (LinearLayout)findViewById(R.id.mainLayoutPlayer);
+	        //Add the adView to it
+	        layout.addView(adView);
+	        //Initiate a generic request to load it with an ad
+	        adView.loadAd(new AdRequest());
 	    
  		editTxtPlayer1 = (EditText) findViewById(R.id.editTxtPlayer1);
  		editTxtPlayer2 = (EditText)findViewById(R.id.editTxtPlayer2);
@@ -251,19 +262,17 @@ public class rajamantri extends Activity {
  		btnMainMenu = (Button) findViewById(R.id.btnMainMenu);
  		btnMainMenu.setOnClickListener(new OnClickListener() {
 			
-			
-			public void onClick(View v) {
+				public void onClick(View v) {
 				Intent i = new Intent(RajaMantri.this, RajaMantri.class);
 				RajaMantri.this.startActivity(i);
 				finish();
-				
 			}
 		});
  		
  		btnSignin = (Button) findViewById(R.id.btnsignin);
  		btnSignin.setOnClickListener(new OnClickListener() {
 			
-			public void onClick(View v) {
+				public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
 				player1_name = editTxtPlayer1.getText().toString();
